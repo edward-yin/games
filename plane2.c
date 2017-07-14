@@ -23,7 +23,7 @@ void gotoxy(int x,int y)
 void HideCursor()//hide cursor 
 {
 	CONSOLE_CURSOR_INFO cursor_info = { 1, 0 };
-	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);//隐藏输入符号
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
 
 void startup() //initialize
@@ -117,16 +117,16 @@ void updateWithInput()
     {
         input = getch();
         if ((input == 'a')&&(p_x > 0))   
-			p_x--;  // 位置左移
+			p_x--;  // move left
 		if ((input == 'd')&&(p_x < width-1))
-			p_x++;  // 位置右移
+			p_x++;  // move right
 		if ((input == 'w')&&(p_y > 0))
-			p_y--;  // 位置上移
+			p_y--;  // move up
 		if ((input == 's')&&(p_y < height-1))
-			p_y++;  // 位置下移
-		if (input == ' ')  // 发射子弹
+			p_y++;  // move down
+		if (input == ' ')  // shoot
 		{
-			b_y = p_y-1;  // 发射子弹的初始位置在飞机的正上方
+			b_y = p_y-1;  // the initial position is over the plane
 			b_x = p_x;
 		}
     }
